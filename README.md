@@ -1,33 +1,62 @@
-# basic-bot
+# Basic GitHub Bot
 
-> A GitHub App built with [Probot](https://github.com/probot/probot) that A Probot app
+A simple Probot-based GitHub App that responds to issue comments.
 
 ## Setup
 
-```sh
-# Install dependencies
-npm install
+1. **Clone the repository:**
+   ```sh
+   git clone https://github.com/yourusername/your-repo.git
+   cd your-repo
+   ```
 
-# Run the bot
-npm start
-```
+2. **Install dependencies:**
+   ```sh
+   npm install
+   ```
 
-## Docker
+3. **Configure environment variables:**
 
-```sh
-# 1. Build container
-docker build -t basic-bot .
+   Copy the example environment file and fill in your values:
+   ```sh
+   cp .env.example .env
+   ```
 
-# 2. Start container
-docker run -e APP_ID=<app-id> -e PRIVATE_KEY=<pem-value> basic-bot
-```
+   Edit `.env` and set the following variables:
 
-## Contributing
+   | Variable         | Description                                                                 |
+   |------------------|-----------------------------------------------------------------------------|
+   | `APP_ID`         | The App ID from your GitHub App settings                                    |
+   | `PRIVATE_KEY`    | The contents of your GitHub App's private key (can be a file path or string)|
+   | `WEBHOOK_SECRET` | The webhook secret you set when creating the GitHub App                     |
+   | `LOG_LEVEL`      | (Optional) Logging level (e.g., `info`, `debug`)                            |
 
-If you have suggestions for how basic-bot could be improved, or want to report a bug, open an issue! We'd love all and any contributions.
+   (Optional for OAuth)
 
-For more, check out the [Contributing Guide](CONTRIBUTING.md).
+   | Variable              | Description                                                                 |
+|-----------------------|-----------------------------------------------------------------------------|
+| `GITHUB_CLIENT_ID`    | (Optional) Client ID from your GitHub App's OAuth credentials               |
+| `GITHUB_CLIENT_SECRET`| (Optional) Client Secret from your GitHub App's OAuth credentials           |
 
-## License
+   Example `.env`:
+   ```
+   APP_ID=12345
+   PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----\nMIIEowIBAAKCAQEA..."
+   WEBHOOK_SECRET=yourwebhooksecret
+   LOG_LEVEL=info
+   ```
 
-[ISC](LICENSE) © 2025 srivpra
+   > **Tip:** If using a file for `PRIVATE_KEY`, use the path:  
+   > `PRIVATE_KEY=./private-key.pem`
+
+4. **Run the bot locally:**
+   ```sh
+   npm start
+   ```
+
+5. **Deploy or use with Docker as needed.**
+
+## Additional Resources
+
+- [Probot Documentation](https://probot.github.io/docs/)
+- [Creating a GitHub App](https://docs.github.com/en/developers/apps/building-github-apps/creating-a-github-app)
