@@ -34,9 +34,9 @@ A simple Probot-based GitHub App that responds to issue comments.
    (Optional for OAuth)
 
    | Variable              | Description                                                                 |
-|-----------------------|-----------------------------------------------------------------------------|
-| `GITHUB_CLIENT_ID`    | (Optional) Client ID from your GitHub App's OAuth credentials               |
-| `GITHUB_CLIENT_SECRET`| (Optional) Client Secret from your GitHub App's OAuth credentials           |
+   |-----------------------|-----------------------------------------------------------------------------|
+   | `GITHUB_CLIENT_ID`    | (Optional) Client ID from your GitHub App's OAuth credentials               |
+   | `GITHUB_CLIENT_SECRET`| (Optional) Client Secret from your GitHub App's OAuth credentials           |
 
    Example `.env`:
    ```
